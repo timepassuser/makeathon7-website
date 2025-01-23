@@ -188,7 +188,7 @@
 
 @keyframes additional {
   0% {
-    transform: translateX(600px) scale(0.8) rotateY(45deg);
+    transform: translateX(300px) scale(0.8) rotateY(30deg);
     opacity: 0;
     visibility: visible;
   }
@@ -215,7 +215,7 @@
 
 
 .navButtonLeft {
-  position: fixed;
+  position: absolute;
   background: none;
   border: none;
   color: #ffd700;
@@ -224,13 +224,13 @@
   font-size: 48px;
   font-weight: bold;
   z-index: 2;
-  left: 20vw; /* Aligns the button to the left edge */
+  left: 0; /* Aligns the button to the left edge */
   top: 40%; /* Vertically centers the button */
 
 }
 
 .navButtonRight {
-  position: fixed;
+  position: absolute;
   background: none;
   border: none;
   color: #ffd700;
@@ -239,12 +239,16 @@
   font-size: 48px;
   font-weight: bold;
   z-index: 2;
-  right: 20vw; /* Aligns the button to the left edge */
+  right: 0; /* Aligns the button to the left edge */
   top: 40%; /* Vertically centers the button */
 }
 
 
-.navButtonLeft:hover.navButtonRight:hover {
+.navButtonLeft:hover {
+  transform: scale(1.1);
+}
+
+.navButtonRight:hover {
   transform: scale(1.1);
 }
 
