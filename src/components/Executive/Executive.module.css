@@ -1,0 +1,261 @@
+
+ .carouselContainer {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+@font-face {
+  font-family: 'Casino';
+  src: url(/AboutUs/fonts/Casino.ttf);
+}
+
+.carouselTitle {
+  font-family: 'Casino', serif;
+  text-align: center;
+  color: white;
+  font-size: 4.5rem;
+  font-weight: lighter;
+}
+
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.slidesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  min-height: 400px;
+}
+
+.slide {
+  position: absolute;
+  transition: transform 0.6s ease-in-out;
+}
+
+.imageCard {
+  position: relative;
+  width: 288px;
+  height: 384px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-image: url(/AboutUs/images/card_bg.png);
+  background-size: cover;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.imageCard img {
+  width: 267.69px;
+  height: 210.513px;
+  object-fit: cover;
+}
+
+.cardInfo {
+  position: absolute;
+  bottom: 14%;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background-image: url(/AboutUs/images/cardtext.png);
+  background-size: cover;
+  text-align: center;
+}
+
+.cardInfo h2 {
+  color: #030000;
+  font-family: Jaro;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-shadow: 0px 4px 4px rgba(207, 121, 121, 0.22);
+}
+
+.cardInfo p {
+  margin: 8px 0;
+  font-family: monospace;
+}
+
+.agentCode {
+  color: black;
+}
+
+/* Initial positions */
+.prevSlide {
+  transform: translateX(-300px) scale(0.9) rotateY(-30deg);
+  z-index: 0;
+}
+
+.currentSlide {
+  transform: translateX(0) scale(1) rotateY(0);
+  z-index: 1;
+}
+
+.nextSlide {
+  transform: translateX(300px) scale(0.9) rotateY(30deg);
+  z-index: 0;
+}
+
+.nextNextSlide {
+  transform: translateX(600px) scale(0.8) rotateY(45deg);
+  opacity: 0;
+  z-index: 0;
+  visibility: hidden;
+}
+
+.prevPrevSlide {
+  transform: translateX(-600px) scale(0.8) rotateY(45deg);
+  opacity: 0;
+  z-index: 0;
+  visibility: hidden;
+}
+
+
+
+/* Animation for current slide moving left */
+.moveCurrentToLeft {
+  animation: currentToLeft 0.6s ease-in-out forwards;
+}
+
+/* Animation for next slide moving to center */
+.moveNextToCenter {
+  animation: nextToCenter 0.6s ease-in-out forwards;
+}
+
+/* Animation for current slide moving right */
+.moveCurrentToRight {
+  animation: currentToRight 0.6s ease-in-out forwards;
+}
+
+/* Animation for prev slide moving to center */
+.movePrevToCenter {
+  animation: prevToCenter 0.6s ease-in-out forwards;
+}
+
+.move2 {
+  animation: additional 0.6s ease-in-out forwards;
+  visibility: visible;
+}
+
+.move3 {
+  animation: additionalBack 0.6s ease-in-out forwards;
+  visibility: visible;
+}
+
+
+@keyframes currentToLeft {
+  from {
+    transform: translateX(0) scale(1) rotateY(0);
+  }
+  to {
+    transform: translateX(-300px) scale(0.9) rotateY(-30deg);
+  }
+}
+
+@keyframes nextToCenter {
+  from {
+    transform: translateX(300px) scale(0.9) rotateY(30deg);
+  }
+  to {
+    transform: translateX(0) scale(1) rotateY(0);
+  }
+}
+
+@keyframes currentToRight {
+  from {
+    transform: translateX(0) scale(1) rotateY(0);
+  }
+  to {
+    transform: translateX(300px) scale(0.9) rotateY(30deg);
+  }
+}
+
+@keyframes prevToCenter {
+  from {
+    transform: translateX(-300px) scale(0.9) rotateY(-30deg);
+  }
+  to {
+    transform: translateX(0) scale(1) rotateY(0);
+  }
+}
+
+@keyframes additional {
+  0% {
+    transform: translateX(600px) scale(0.8) rotateY(45deg);
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(300px) scale(0.9) rotateY(30deg);
+    opacity: 0.7;
+    visibility: visible;
+  }
+}
+
+@keyframes additionalBack {
+  0% {
+    transform: translateX(-600px) scale(0.8) rotateY(45deg);
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(-300px) scale(0.9) rotateY(-30deg);
+    opacity: 0.7;
+    visibility: visible;
+  }
+}
+
+
+
+.navButtonLeft {
+  position: fixed;
+  background: none;
+  border: none;
+  color: #ffd700;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 48px;
+  font-weight: bold;
+  z-index: 2;
+  left: 20vw; /* Aligns the button to the left edge */
+  top: 40%; /* Vertically centers the button */
+
+}
+
+.navButtonRight {
+  position: fixed;
+  background: none;
+  border: none;
+  color: #ffd700;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 48px;
+  font-weight: bold;
+  z-index: 2;
+  right: 20vw; /* Aligns the button to the left edge */
+  top: 40%; /* Vertically centers the button */
+}
+
+
+.navButtonLeft:hover.navButtonRight:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .prevSlide,
+  .nextSlide {
+    display: none;
+  }
+
+  .imageCard {
+    width: 250px;
+    height: 350px;
+  }
+}
